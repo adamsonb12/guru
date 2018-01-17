@@ -1,6 +1,7 @@
-export * from './Button';
+export * from './GuruButton';
 export * from './FullContainer';
-// export * from './card';
+export * from './ImageFullScreenView';
 export * from './CardSection';
 export * from './Input';
 export * from './Spinner';
+export * from './BottomSection';

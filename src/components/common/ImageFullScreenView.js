@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 
-const CardSection = (props) => {
+const ImageFullScreenView = (props) => {
     return (
         <View style={styles.containerStyle}>
             {props.children}
@@ -11,12 +11,12 @@ const CardSection = (props) => {
 
 const styles = {
     containerStyle: {
-        padding: 5,
-        backgroundColor: 'transparent',
-        justifyContent: 'flex-start',
-        flexDirection: 'row',
-        position: 'relative'
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
     }
 };
 
-export { CardSection };
+export {ImageFullScreenView};

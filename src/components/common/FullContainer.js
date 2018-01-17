@@ -13,7 +13,8 @@ const styles = {
     containerStyle: {
         backgroundColor: '#FBFBF9',
         flex: 1,
-        marginTop: 23
+        flexDirection: 'column',
+        // justifyContent: 'space-between' This should happen in the screne calling this component
     }
 };
 

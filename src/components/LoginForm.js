@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import { connect } from 'react-redux';
 
 import { emailChanged, passwordChanged, loginUser } from '../actions';
-import { FullContainer, CardSection, Input, Spinner } from './common';
+import { FullContainer, CardSection, Input, Spinner, GuruButton, ImageFullScreenView } from './common';
+
+const remote = 'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1506&q=80';
 
 class LoginForm extends Component {
 
@@ -39,24 +41,28 @@ class LoginForm extends Component {
       );
     }
     return (
-      <Button
-          // onPress={onPressLearnMore}
-          title="Login"
-          color="blue"
-          accessibilityLabel="Learn more about this purple button"
-          onPress={this.onLoginPress.bind(this)}
-        />
+      <CardSection>
+        <GuruButton onPress={this.onLoginPress.bind(this)}>Submit</GuruButton>
+      </CardSection>
     );
   }
 
   render() {
     return (
-      <View>
+      <FullContainer>
+
+        <ImageFullScreenView>
+          <Image
+            style={styles.ImageBackgroundStyle}
+            source={{ uri: remote }}
+          />
+        </ImageFullScreenView>
+
+        <View style={styles.SpacingStyle}>
 
         <CardSection>
           <Input 
-            label="Email"
-            placeholder="email@gmail.com"
+            placeholder="Email"
             onChangeText={this.onEmailChange.bind(this)}
             value={this.props.email}
           />
@@ -64,9 +70,8 @@ class LoginForm extends Component {
 
         <CardSection>
           <Input 
-            label="Password"
             secureTextEntry
-            placeholder="password"
+            placeholder="Password"
             onChangeText={this.onPasswordChange.bind(this)}
             value={this.props.password}
           />
@@ -76,16 +81,29 @@ class LoginForm extends Component {
 
         {this.renderSubmitButton()}
 
-      </View>
+        </View>
+
+      </FullContainer>
     );
   }
 }
 
 const styles = {
+  SpacingStyle: {
+    flexDirection: 'column',
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    paddingBottom: 50
+  },
   errorTextStyle: {
     fontSize: 20,
     alignSelf: 'center',
     color: 'red'
+  },
+  ImageBackgroundStyle: {
+    flex: 1,
+    resizeMode: 'cover'
   }
 }
 
