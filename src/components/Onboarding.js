@@ -44,13 +44,8 @@ class Onboarding extends Component {
           </View>
 
           <View style={styles.BottomStyle}>
-            <CardSection>
               <GuruButton onPress={this.onRegisterPress.bind(this)}>Register with Email</GuruButton>
-            </CardSection>
-            
-            <CardSection>
               <GuruButton onPress={this.onLoginPress.bind(this)}>Login</GuruButton>
-            </CardSection>
           </View>
         
         </View> 
@@ -93,7 +88,7 @@ const styles = {
     paddingTop: 50
   },
   BottomStyle: {
-    paddingBottom: 50
+    paddingBottom: 35
   }
 }
 

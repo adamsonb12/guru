@@ -1,25 +1,24 @@
 import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Text, View } from 'react-native';
 
-const GuruButton = ({ onPress, children }) => {
-  const { buttonStyle, textStyle } = styles;
+const ErrorMessage = ({ children }) => {
   return (
     <View style={styles.containerStyle}>
-      <TouchableOpacity style={buttonStyle} onPress={onPress}>
-        <Text style={textStyle}>{children}</Text>
-      </TouchableOpacity>
+      <View style={styles.errorBoxStyle}>
+        <Text style={styles.textStyle}>{children}</Text>
+      </View>
     </View>
   );
 };
 
 const styles = {
-  buttonStyle: {
+  errorBoxStyle: {
     flex: 1,
     alignSelf: 'stretch',
-    backgroundColor: 'rgba(30,53,71,.8)',
+    backgroundColor: '#f2dede',
     borderRadius: 3,
     borderWidth: 1,
-    borderColor: 'rgb(151, 151, 151)',
+    borderColor: '#ebccd1',
     marginLeft: 15,
     marginRight: 15,
     paddingTop: 10,
@@ -27,10 +26,10 @@ const styles = {
   },
   textStyle: {
     alignSelf: 'center',
-    color: '#fff',
+    color: '#a94442',
     fontFamily: 'Helvetica Neue',
-    fontSize: 26,
-    fontWeight: '200',
+    fontSize: 24,
+    fontWeight: '400',
     letterSpacing: 0.47999998927116394
   },
   containerStyle: {
@@ -42,4 +41,4 @@ const styles = {
   }
 };
 
-export { GuruButton };
+export { ErrorMessage };

@@ -5,15 +5,17 @@ const Input = ({ value, onChangeText, placeholder, secureTextEntry }) => {
     const { inputStyle, containerStyle } = styles;
 
     return (
-        <View style={containerStyle}>
-            <TextInput
-                placeholder={placeholder}
-                autoCorrect={false}
-                style={inputStyle}
-                value={value}
-                onChangeText={onChangeText}
-                secureTextEntry={secureTextEntry}
-            />
+        <View style={styles.mainContainerStyle}>
+            <View style={containerStyle}>
+                <TextInput
+                    placeholder={placeholder}
+                    autoCorrect={false}
+                    style={inputStyle}
+                    value={value}
+                    onChangeText={onChangeText}
+                    secureTextEntry={secureTextEntry}
+                />
+            </View>
         </View>
     );
 };
@@ -31,13 +33,21 @@ const styles = {
         marginLeft: 12,
         marginRight: 12,
         borderRadius: 10,
-        borderWidth: 1,
-        borderColor: 'rgb(151, 151, 151)'
+        shadowOffset: { height: 3, width: 1},
+        shadowOpacity: 0.8,
+        shadowColor: '#000'
     },
     containerStyle: {
         flex: 1,
         flexDirection: 'row',
         alignItems: 'center'
+    },
+    mainContainerStyle: {
+        padding: 5,
+        backgroundColor: 'transparent',
+        justifyContent: 'flex-start',
+        flexDirection: 'row',
+        position: 'relative'
     }
 };
 
