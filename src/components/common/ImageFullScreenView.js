@@ -1,22 +1,30 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Image } from 'react-native';
 
-const ImageFullScreenView = (props) => {
+const ImageFullScreenView = ({ source, children }) => {
     return (
         <View style={styles.containerStyle}>
-            {props.children}
+            <Image
+                style={styles.ImageBackgroundStyle}
+                source={{ uri: source }}
+            />
+            {children}
         </View>
     );
 };
 
 const styles = {
     containerStyle: {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
-    }
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+    },
+    ImageBackgroundStyle: {
+        flex: 1,
+        resizeMode: 'cover'
+    },
 };
 
-export {ImageFullScreenView};
+export { ImageFullScreenView };

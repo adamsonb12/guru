@@ -1,11 +1,11 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 
-const GuruButton = ({ onPress, children }) => {
-  const { buttonStyle, textStyle } = styles;
+const InformationButton = ({ onPress, children }) => {
+  const { buttonStyle, textStyle, containerStyle } = styles;
   return (
-    <View style={styles.containerStyle}>
-      <TouchableOpacity style={buttonStyle} onPress={onPress}>
+    <View style={containerStyle}>
+      <TouchableOpacity style={styles.buttonStyle} onPress={onPress}>
         <Text style={textStyle}>{children}</Text>
       </TouchableOpacity>
     </View>
@@ -15,26 +15,23 @@ const GuruButton = ({ onPress, children }) => {
 const styles = {
   buttonStyle: {
     flex: 1,
-    alignSelf: 'stretch',
-    backgroundColor: 'rgba(30,53,71,.8)',
+    backgroundColor: 'transparent',
     borderRadius: 3,
     borderWidth: 1,
     borderColor: 'rgb(151, 151, 151)',
-    marginLeft: 15,
-    marginRight: 15,
-    paddingTop: 10,
-    paddingBottom: 10
+    marginLeft: 110,
+    marginRight: 110,
+    paddingTop: 4,
+    paddingBottom: 4
   },
   textStyle: {
     alignSelf: 'center',
-    color: '#fff',
+    textAlign: 'center',
+    color: 'rgb(151, 151, 151)',
     fontFamily: 'Helvetica Neue',
-    fontSize: 26,
-    fontWeight: '200',
-    letterSpacing: 0.47999998927116394
+    fontSize: 14
   },
   containerStyle: {
-    padding: 5,
     backgroundColor: 'transparent',
     justifyContent: 'flex-start',
     flexDirection: 'row',
@@ -42,4 +39,4 @@ const styles = {
   }
 };
 
-export { GuruButton };
+export { InformationButton };

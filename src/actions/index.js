@@ -6,7 +6,11 @@ import {
   PASSWORD_CHANGED,
   LOGIN_USER,
   LOGIN_USER_SUCCESS,
-  LOGIN_USER_FAIL
+  LOGIN_USER_FAIL,
+  FIRST_NAME_CHANGED,
+  LAST_NAME_CHANGED,
+  PASSWORD_CONFIRM_CHANGED,
+  SIGN_UP_USER
 } from './Types';
 
 export const emailChanged = (text) => {
@@ -23,6 +27,27 @@ export const passwordChanged = (text) => {
   };
 };
 
+export const passwordConfirmChanged = (text) => {
+  return {
+    type: PASSWORD_CONFIRM_CHANGED,
+    payload: text
+  };
+};
+
+export const firstNameChanged = (text) => {
+  return {
+    type: FIRST_NAME_CHANGED,
+    payload: text
+  };
+};
+
+export const lastNameChanged = (text) => {
+  return {
+    type: LAST_NAME_CHANGED,
+    payload: text
+  };
+};
+
 export const loginUser = ({ email, password }) => {
   return (dispatch) => {
     dispatch({ type: LOGIN_USER });
@@ -30,6 +55,16 @@ export const loginUser = ({ email, password }) => {
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(user => { loginUserSuccess(dispatch, user) })
     .catch(() => { loginUserFail(dispatch) });
+  };
+};
+
+export const signUpUser = ({ email, password }) => {
+  return (dispatch) => {
+    dispatch({ type: SIGN_UP_USER });
+
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then(user => {loginUserSuccess(dispatch, user)})
+      .catch(() => {loginUserFail(dispatch)});
   };
 };
 

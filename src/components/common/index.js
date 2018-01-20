@@ -1,4 +1,4 @@
-export * from './GuruButton';
+export * from './ActionButton';
 export * from './FullContainer';
 export * from './ImageFullScreenView';
 export * from './CardSection';
@@ -6,3 +6,4 @@ export * from './Input';
 export * from './Spinner';
 export * from './BottomSection';
 export * from './ErrorMessage';
+export * from './InformationButton';

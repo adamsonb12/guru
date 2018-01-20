@@ -3,7 +3,7 @@ import { View, Text, Image } from 'react-native';
 import { connect } from 'react-redux';
 
 import { emailChanged, passwordChanged, loginUser } from '../actions';
-import { FullContainer, CardSection, Input, Spinner, GuruButton, ImageFullScreenView, ErrorMessage } from './common';
+import { FullContainer, CardSection, Input, Spinner, ActionButton, ImageFullScreenView, ErrorMessage } from './common';
 
 const remote = 'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1506&q=80';
 
@@ -39,7 +39,7 @@ class LoginForm extends Component {
       );
     }
     return (
-        <GuruButton onPress={this.onLoginPress.bind(this)}>Submit</GuruButton>
+        <ActionButton onPress={this.onLoginPress.bind(this)}>Submit</ActionButton>
     );
   }
 
@@ -47,12 +47,7 @@ class LoginForm extends Component {
     return (
       <FullContainer>
 
-        <ImageFullScreenView>
-          <Image
-            style={styles.ImageBackgroundStyle}
-            source={{ uri: remote }}
-          />
-        </ImageFullScreenView>
+        <ImageFullScreenView source={remote} />
 
         <View style={styles.SpacingStyle}>
 
@@ -84,14 +79,9 @@ const styles = {
   SpacingStyle: {
     flexDirection: 'column',
     flex: 1,
-    justifyContent: 'flex-end',
+    justifyContent: 'flex-start',
     alignItems: 'center',
-    paddingBottom: 35
-  },
-  errorTextStyle: {
-    fontSize: 20,
-    alignSelf: 'center',
-    color: 'red'
+    paddingTop: 10
   },
   ImageBackgroundStyle: {
     flex: 1,

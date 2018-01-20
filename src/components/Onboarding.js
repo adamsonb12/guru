@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { View, Text, Image } from 'react-native';
 import { connect } from 'react-redux';
 
-import { FullContainer, GuruButton, CardSection, ImageFullScreenView, BottomSection } from './common';
+import { FullContainer, ActionButton, CardSection, ImageFullScreenView, BottomSection } from './common';
 import { Actions } from 'react-native-router-flux';
 
-const remote = 'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1506&q=80';
+// const remote = 'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1506&q=80';
+const remote = 'https://images.unsplash.com/photo-1467043153537-a4fba2cd39ef?auto=format&fit=crop&w=361&q=80';
 
 class Onboarding extends Component {
 
@@ -14,7 +15,7 @@ class Onboarding extends Component {
   }
 
   onRegisterPress() {
-    Actions.login();
+    Actions.signup();
   }
 
   render() {
@@ -24,17 +25,13 @@ class Onboarding extends Component {
     return (
       <FullContainer style={styles.SpacingStyle}>
 
-        <ImageFullScreenView>
-          <Image
-            style={styles.ImageBackgroundStyle}
-            source={{ uri: remote }}
-          />
-        </ImageFullScreenView>
+        <ImageFullScreenView source={remote} />
 
         <View style={styles.HazeStyle}>
 
           <View style={styles.IntroStyle}>
             <View>
+              {/* <Image style={{width: '100%'}} source={require('../../assets/images/guruLogo.png')} /> */}
               <Text style={styles.LogoStyle}>GURU</Text>
             </View>
 
@@ -44,8 +41,8 @@ class Onboarding extends Component {
           </View>
 
           <View style={styles.BottomStyle}>
-              <GuruButton onPress={this.onRegisterPress.bind(this)}>Register with Email</GuruButton>
-              <GuruButton onPress={this.onLoginPress.bind(this)}>Login</GuruButton>
+              <ActionButton onPress={this.onRegisterPress.bind(this)}>Register with Email</ActionButton>
+              <ActionButton onPress={this.onLoginPress.bind(this)}>Login</ActionButton>
           </View>
         
         </View> 
@@ -65,7 +62,7 @@ const styles = {
   },
   HazeStyle: {
     flex: 1,
-    backgroundColor: 'rgba(255,255,255,.6)',
+    // backgroundColor: 'rgba(255,255,255,.6)',
     justifyContent: 'space-between'
   },
   LogoStyle: {
