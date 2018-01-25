@@ -1,0 +1,172 @@
+{
+  "rooms": [
+    {
+      "roomName": "kitchen",
+      "roomDisplayName": "Kitchen",
+      "roomImage": "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4d2529242e0b4fadad755467e572682a&auto=format&fit=crop&w=755&q=80",
+      "roomTasks": [
+        {
+          "taskName": "counterTops",
+          "taskPrice": 500,
+          "active": true
+        },
+        {
+          "taskName": "stoveTop",
+          "taskPrice": 700,
+          "active": true
+        },
+        {
+          "taskName": "floor",
+          "taskPrice": 500,
+          "active": true
+        },
+        {
+          "taskName": "dishes",
+          "taskPrice": 800,
+          "active": true
+        },
+        {
+          "taskName": "table",
+          "taskPrice": 300,
+          "active": true
+        },
+        {
+          "taskName": "walls",
+          "taskPrice": 1000,
+          "active": false
+        },
+        {
+          "taskName": "baseboards",
+          "taskPrice": 1000,
+          "active": false
+        },
+        {
+          "taskName": "oven",
+          "taskPrice": 1500,
+          "active": false
+        },
+        {
+          "taskName": "fridge",
+          "taskPrice": 1500,
+          "active": false
+        },
+        {
+          "taskName": "freezer",
+          "taskPrice": 1500,
+          "active": false
+        }
+      ]
+    },
+    {
+      "roomName": "livingRoom",
+      "roomDisplayName": "Living Room",
+      "roomImage": "https://images.unsplash.com/photo-1503174971373-b1f69850bded?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5952432c3b70cfedf523282f5895f009&auto=format&fit=crop&w=1387&q=80",
+      "roomTasks": [
+        {
+          "taskName": "floor",
+          "taskPrice": 500,
+          "active": true
+        },
+        {
+          "taskName": "dusting",
+          "taskPrice": 1000,
+          "active": true
+        },
+        {
+          "taskName": "windows",
+          "taskPrice": 700,
+          "active": true
+        },
+        {
+          "taskName": "furniture",
+          "taskPrice": 800,
+          "active": false
+        },
+        {
+          "taskName": "baseboards",
+          "taskPrice": 1000,
+          "active": false
+        },
+        {
+          "taskName": "walls",
+          "taskPrice": 1000,
+          "active": false
+        }
+      ]
+    },
+    {
+      "roomName": "bathroom",
+      "roomDisplayName": "Bathroom",
+      "roomImage": "https://images.unsplash.com/photo-1507086182422-97bd7ca2413b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c352402117406dd707d1baec4b29b811&auto=format&fit=crop&w=755&q=80",
+      "roomTasks": [
+        {
+          "taskName": "sink",
+          "taskPrice": 200,
+          "active": true
+        },
+        {
+          "taskName": "mirror",
+          "taskPrice": 100,
+          "active": true
+        },
+        {
+          "taskName": "counterTops",
+          "taskPrice": 500,
+          "active": true
+        },
+        {
+          "taskName": "toilet",
+          "taskPrice": 800,
+          "active": true
+        },
+        {
+          "taskName": "floor",
+          "taskPrice": 500,
+          "active": true
+        },
+        {
+          "taskName": "shower",
+          "taskPrice": 800,
+          "active": true
+        },
+        {
+          "taskName": "tub",
+          "taskPrice": 800,
+          "active": false
+        },
+        {
+          "taskName": "walls",
+          "taskPrice": 800,
+          "active": false
+        },
+        {
+          "taskName": "baseboards",
+          "taskPrice": 1000,
+          "active": false
+        }
+      ]
+    },
+    {
+      "roomName": "bedroom",
+      "roomDisplayName": "Bedroom",
+      "roomImage": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-0.3.5&s=bd8ed8308a093982ab2764855a014565&auto=format&fit=crop&w=750&q=80",
+      "roomTasks": [
+        {
+          "taskName": "floor",
+          "taskPrice": 400,
+          "active": true
+        },
+        {
+          "taskName": "dust",
+          "taskPrice": 350,
+          "active": true
+        },
+        {
+          "taskName": "walls",
+          "taskPrice": 400,
+          "active": false
+        }
+      ]
+    }
+  ]
+}

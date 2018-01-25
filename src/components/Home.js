@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
-import { FullContainer, ImageFullScreenView, InformationButton, ActionButton } from './common';
+import { FullContainer, ImageFullScreenView, InformationButton, ActionButton, NavBar } from './common';
 
 const remote = 'https://images.unsplash.com/photo-1467043153537-a4fba2cd39ef?auto=format&fit=crop&w=361&q=80';
 
 class Home extends Component {
+
+  bookNow() {
+    Actions.roomSelection();
+  }
+
   render() {
     return (
       <FullContainer spacing='space-between'>
@@ -15,7 +21,7 @@ class Home extends Component {
           <View style={styles.IntroStyle}>
               <Text style={styles.IntroDescriptionStyle}>Guru contracts with local professionals to bring you affordable 
               home services, when you want it, however you want it.</Text>
-              <InformationButton>Learn how the app works</InformationButton>
+              {/* <InformationButton>Learn how the app works</InformationButton> */}
           </View>
 
           <View>
@@ -23,8 +29,10 @@ class Home extends Component {
           </View>
 
           <View style={styles.ButtonStyle}>
-            <ActionButton>Book Now</ActionButton>
+            <ActionButton onPress={this.bookNow.bind(this)}>Book Now</ActionButton>
           </View>
+
+          <NavBar />
 
       </FullContainer>
     );
