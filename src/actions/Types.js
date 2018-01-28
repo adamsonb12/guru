@@ -9,3 +9,6 @@ export const FIRST_NAME_CHANGED = 'first_name_changed';
 export const LAST_NAME_CHANGED = 'last_name_changed';
 export const SIGN_UP_USER = 'sign_up_user';
 export const SIGN_UP_USER_FAIL = 'sign_up_user_fail';
+export const ROOM_TOGGLE = 'room_toggle';
+export const TASK_TOGGLE = 'task_toggle';
+export const GET_DEFAULT_ROOMS = 'get_default_rooms';

@@ -10,8 +10,12 @@ import {
   FIRST_NAME_CHANGED,
   LAST_NAME_CHANGED,
   PASSWORD_CONFIRM_CHANGED,
-  SIGN_UP_USER
+  SIGN_UP_USER,
+  ROOM_TOGGLE,
+  GET_DEFAULT_ROOMS
 } from './Types';
+
+// Login and Sign Up Actions
 
 export const emailChanged = (text) => {
   return {
@@ -75,4 +79,19 @@ const loginUserSuccess = (dispatch, user) => {
 
 const loginUserFail = (dispatch) => {
   dispatch({ type: LOGIN_USER_FAIL });
+};
+
+// Scheduling Actions
+
+export const getDefaultRooms = () => {
+  return {
+    type: GET_DEFAULT_ROOMS
+  };
+};
+
+export const toggleRoom = ({ roomName, active }) => {
+  return {
+    type: ROOM_TOGGLE,
+    payload: { roomName, active }
+  };
 };
