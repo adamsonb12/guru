@@ -1,7 +1,9 @@
 import React from 'react';
 import { TouchableOpacity, View, Text } from 'react-native';
+import { connect } from 'react-redux';
 
 import { ImageFillContainer } from '../common';
+import { toggleRoom } from '../../actions';
 
 class RoomItem extends React.PureComponent {
 
@@ -11,15 +13,16 @@ class RoomItem extends React.PureComponent {
 
   _onPress = () => {
     this.state.active === false ? this.setState({ active: true }) : this.setState({ active: false });
+    this.props.toggleRoom(this.props.room);
   };
 
   renderContent() {
     if (this.state.active) {
       return (
         <TouchableOpacity onPress={this._onPress} style={styles.imageButtonStyle}>
-          <ImageFillContainer source={this.props.imgSource} />
+          <ImageFillContainer source={this.props.room.roomImage} />
           <View style={styles.textContainer}>
-            <Text style={styles.imageRoomNameStyle}>{this.props.title}</Text>
+            <Text style={styles.imageRoomNameStyle}>{this.props.room.roomDisplayName}</Text>
             <Text style={styles.imageDetailsStyle}>details</Text>
           </View>
         </TouchableOpacity>
@@ -28,7 +31,7 @@ class RoomItem extends React.PureComponent {
     return (
       <TouchableOpacity onPress={this._onPress} style={styles.buttonStyle}>
         <View style={styles.textContainer}>
-          <Text style={styles.roomNameStyle}>{this.props.title}</Text>
+          <Text style={styles.roomNameStyle}>{this.props.room.roomDisplayName}</Text>
           <Text style={styles.detailsStyle}>details</Text>
         </View>
       </TouchableOpacity>
@@ -94,4 +97,8 @@ const styles = {
   }
 }
 
-export default RoomItem;
+const mapStateToProps = ({ rooms }) => {
+  return {};
+};
+
+export default connect(mapStateToProps, { toggleRoom })(RoomItem);

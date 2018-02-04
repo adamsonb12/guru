@@ -5,10 +5,9 @@ import { Icon } from 'react-native-elements';
 class OrderTotal extends Component {
 
   render() {
-
     return (
       <View style={styles.OrderTotalStyle}>
-        <Text style={styles.TextStyle}>Order Total: $ {this.props.price}</Text> 
+        <Text style={styles.TextStyle}>Order Total: $ {(this.props.price/100).toFixed(2)}</Text> 
       </View>
     );
   }

@@ -6,6 +6,7 @@ import LoginForm from './components/LoginForm';
 import Home from './components/Home';
 import SignUpForm from './components/SignUpForm';
 import RoomSelection from './components/schedulingComponents/RoomSelection';
+import TaskChecklist from './components/schedulingComponents/TaskChecklist';
 
 const RouterComponent = () => {
   return (
@@ -21,6 +22,7 @@ const RouterComponent = () => {
         <Scene key="scheduling" initial>
           <Scene key="home" component={Home} title="Home" hideNavBar/>
           <Scene key="roomSelection" component={RoomSelection} title="Room Selection"/>
+          <Scene key="taskSelection" component={TaskChecklist} title="Room Details" />
         </Scene>
 
       </Scene>

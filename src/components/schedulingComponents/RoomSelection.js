@@ -3,28 +3,18 @@ import { View, Text, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 
 import { FullContainer, ImageFullScreenView, OrderTotal } from '../common';
-import { getDefaultRooms } from '../../actions';
+// import { getDefaultRooms } from '../../actions';
 import RoomItem from './RoomItem';
 
 const remote = 'https://images.unsplash.com/photo-1467043153537-a4fba2cd39ef?auto=format&fit=crop&w=361&q=80';
 
 class RoomSelection extends Component {
 
-  // componentWillMount() {
-  //   this.props.getDefaultRooms();
-  // }
-
-  componentDidMount() {
-    console.log('rooms', this.props.rooms);
-  }
-
-_renderItem = ({item}) => ( 
-  <RoomItem 
-    title={item.roomDisplayName}
-    imgSource={item.roomImage}
-    active={item.roomActive}
-  />
-);
+  _renderItem = ({item}) => ( 
+    <RoomItem 
+      room={item}
+    />
+  );
 
   render() {
     return (
@@ -39,13 +29,13 @@ _renderItem = ({item}) => (
 
         <View style={styles.listContainerStyle}>
           <FlatList
-            data={this.props.rooms.rooms}
+            data={this.props.baseRooms}
             renderItem={this._renderItem}
             keyExtractor={item => item.roomName}
           />
         </View>
 
-        <OrderTotal price={100} />
+        <OrderTotal price={this.props.price} />
 
       </FullContainer>
     );
@@ -81,9 +71,9 @@ const styles = {
   }
 }
 
-const mapStateToProps = state => {
-  // const { roomsData } = rooms;
-  return { rooms: state.rooms };
+const mapStateToProps = ({ rooms }) => {
+  const { baseRooms, selectedRooms, price } = rooms;
+  return { baseRooms, selectedRooms, price};
 };
 
-export default connect(mapStateToProps, { getDefaultRooms })(RoomSelection);
+export default connect(mapStateToProps)(RoomSelection);

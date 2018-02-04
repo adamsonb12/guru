@@ -83,15 +83,15 @@ const loginUserFail = (dispatch) => {
 
 // Scheduling Actions
 
-export const getDefaultRooms = () => {
+export const toggleRoom = (room) => {
   return {
-    type: GET_DEFAULT_ROOMS
+    type: ROOM_TOGGLE,
+    payload: room
   };
 };
 
-export const toggleRoom = ({ roomName, active }) => {
+export const toggleTask = (roomName, taskList) => {
   return {
-    type: ROOM_TOGGLE,
-    payload: { roomName, active }
+
   };
 };
