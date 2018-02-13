@@ -1,29 +1,37 @@
 import React from 'react';
 import { TouchableOpacity, View, Text } from 'react-native';
 import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
 
 import { ImageFillContainer } from '../common';
-import { toggleRoom } from '../../actions';
+import { addRoom, removeRoom, selectDetails } from '../../actions';
 
 class RoomItem extends React.PureComponent {
 
-  state = {
-    active: false
-  }
-
-  _onPress = () => {
-    this.state.active === false ? this.setState({ active: true }) : this.setState({ active: false });
-    this.props.toggleRoom(this.props.room);
+  _onPress = () => { // If statement here fo whether or not to add or remove
+    if(this.props.room.active) {
+      this.props.removeRoom(this.props.room);
+    }
+    else {
+      this.props.addRoom(this.props.room);
+    }
   };
 
+  onDetailsPress() {
+    this.props.selectDetails(this.props.room);
+    Actions.taskSelection();
+  }
+
   renderContent() {
-    if (this.state.active) {
+    if (this.props.room.active) {
       return (
         <TouchableOpacity onPress={this._onPress} style={styles.imageButtonStyle}>
           <ImageFillContainer source={this.props.room.roomImage} />
           <View style={styles.textContainer}>
             <Text style={styles.imageRoomNameStyle}>{this.props.room.roomDisplayName}</Text>
-            <Text style={styles.imageDetailsStyle}>details</Text>
+            <TouchableOpacity onPress={this.onDetailsPress.bind(this)}>
+              <Text style={styles.imageDetailsStyle}>details</Text>
+            </TouchableOpacity>
           </View>
         </TouchableOpacity>
       );
@@ -32,7 +40,9 @@ class RoomItem extends React.PureComponent {
       <TouchableOpacity onPress={this._onPress} style={styles.buttonStyle}>
         <View style={styles.textContainer}>
           <Text style={styles.roomNameStyle}>{this.props.room.roomDisplayName}</Text>
-          <Text style={styles.detailsStyle}>details</Text>
+          <TouchableOpacity onPress={this.onDetailsPress.bind(this)}>
+            {/* <Text style={styles.imageDetailsStyle}>details</Text> */}
+          </TouchableOpacity>
         </View>
       </TouchableOpacity>
     );
@@ -94,11 +104,14 @@ const styles = {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center'
+  },
+  detailsButtonStyle: {
+
   }
 }
 
-const mapStateToProps = ({ rooms }) => {
+const mapStateToProps = ({ appointment }) => {
   return {};
 };
 
-export default connect(mapStateToProps, { toggleRoom })(RoomItem);
+export default connect(mapStateToProps, { addRoom, removeRoom, selectDetails })(RoomItem);

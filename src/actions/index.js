@@ -11,8 +11,11 @@ import {
   LAST_NAME_CHANGED,
   PASSWORD_CONFIRM_CHANGED,
   SIGN_UP_USER,
-  ROOM_TOGGLE,
-  GET_DEFAULT_ROOMS
+  GET_DEFAULT_ROOMS,
+  SELECT_DETAILS,
+  TASK_TOGGLE,
+  ADD_ROOM,
+  REMOVE_ROOM
 } from './Types';
 
 // Login and Sign Up Actions
@@ -83,15 +86,30 @@ const loginUserFail = (dispatch) => {
 
 // Scheduling Actions
 
-export const toggleRoom = (room) => {
+export const addRoom = (room) => {
   return {
-    type: ROOM_TOGGLE,
+    type: ADD_ROOM,
     payload: room
   };
 };
 
-export const toggleTask = (roomName, taskList) => {
+export const removeRoom = (room) => {
   return {
+    type: REMOVE_ROOM,
+    payload: room
+  };
+};
 
+export const toggleTask = (room, task ) => {
+  return {
+    type: TASK_TOGGLE,
+    payload: { room, task }
+  };
+};
+
+export const selectDetails = (room) => {
+  return {
+    type: SELECT_DETAILS,
+    payload: room
   };
 };

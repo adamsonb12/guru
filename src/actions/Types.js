@@ -11,5 +11,7 @@ export const SIGN_UP_USER = 'sign_up_user';
 export const SIGN_UP_USER_FAIL = 'sign_up_user_fail';
 
 // Scheduling Types
-export const ROOM_TOGGLE = 'room_toggle';
+export const ADD_ROOM = 'add_room';
+export const REMOVE_ROOM = 'remove_room';
 export const TASK_TOGGLE = 'task_toggle';
+export const SELECT_DETAILS = 'select-details';

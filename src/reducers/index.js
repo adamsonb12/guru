@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import AuthReducer from './AuthReducer';
-import RoomsReducer from './RoomsReducer';
+import DefaultRoomsReducer from './DefaultRoomsReducer';
+import AppointmentSchedulingReducer from './AppointmentSchedulingReducer';
 
 export default combineReducers({
   auth: AuthReducer,
-  rooms: RoomsReducer
+  defaultRooms: DefaultRoomsReducer,
+  appointment: AppointmentSchedulingReducer
 });
