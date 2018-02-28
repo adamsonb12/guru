@@ -11,3 +11,6 @@ export * from './NavBar';
 export * from './OrderTotal';
 export * from './ImageFillContainer';
 export * from './Checkbox';
+export * from './ContinueButton';
+export * from './StaticListItem';
+export * from './RoomInfoItem';

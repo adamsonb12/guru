@@ -1,19 +1,37 @@
 import React, { Component } from 'react';
 import { View, Text, FlatList, SectionList } from 'react-native';
 import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
 
-import { FullContainer, ImageFullScreenView, OrderTotal, ActionButton } from '../common';
+import { FullContainer, ImageFullScreenView, OrderTotal, ContinueButton } from '../common';
 import RoomItem from './RoomItem';
 
 const remote = 'https://images.unsplash.com/photo-1467043153537-a4fba2cd39ef?auto=format&fit=crop&w=361&q=80';
 
 class RoomSelection extends Component {
 
+  continue() {
+    Actions.appointment();
+  }
+
   _renderItem = ({item}) => (
     <RoomItem
       room={item}
     />
   );
+
+  renderContinueButton() {
+    if(this.props.selectedRooms.length > 0) {
+      return (
+        <ContinueButton disabled={false} onPress={this.continue.bind(this)} />
+      );
+    }
+    else {
+      return (
+        <ContinueButton disabled={true} />
+      );
+    }
+  }
 
   render() {
     return (
@@ -39,7 +57,7 @@ class RoomSelection extends Component {
         </View>
 
         <View style={styles.buttonContainer} >
-          {/* Put a continue button here */}
+          {this.renderContinueButton()}
         </View>
 
         <OrderTotal price={this.props.price} />
@@ -78,8 +96,9 @@ const styles = {
     paddingBottom: 10
   },
   buttonContainer: {
-    justifyContent: 'flex-end',
-    paddingBottom: 75
+    position: 'absolute',
+    bottom: 75,
+    right: 17
   }
 }
 

@@ -1,0 +1,647 @@
+[
+  {
+    "address": "11567 Greenwood Way South Jordan, UT 88456",
+    "dateScheduled": "Mon Feb 28 2018 17:10:04 GMT-0700 (MST)",
+    "cleaningAppointmentDate": "Mon Mar 7 2018 09:30:00 GMT-0700 (MST)",
+    "contactName": "Brett Adamson",
+    "contactPhone": "8011231234",
+    "rooms": [
+      {
+      "roomName": "kitchen",
+      "roomDisplayName": "Kitchen",
+      "roomImage": "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4d2529242e0b4fadad755467e572682a&auto=format&fit=crop&w=755&q=80",
+      "active": false,
+      "roomTasks": [
+        {
+          "taskName": "counterTops",
+          "taskDisplayName": "Counter Tops",
+          "taskPrice": 500,
+          "active": true
+        },
+        {
+          "taskName": "stoveTop",
+          "taskDisplayName": "Stove Top",
+          "taskPrice": 700,
+          "active": true
+        },
+        {
+          "taskName": "floor",
+          "taskDisplayName": "Floor",
+          "taskPrice": 500,
+          "active": true
+        },
+        {
+          "taskName": "dishes",
+          "taskDisplayName": "Dishes",
+          "taskPrice": 800,
+          "active": true
+        },
+        {
+          "taskName": "table",
+          "taskDisplayName": "Table",
+          "taskPrice": 300,
+          "active": false
+        },
+        {
+          "taskName": "walls",
+          "taskDisplayName": "Walls",
+          "taskPrice": 1000,
+          "active": false
+        },
+        {
+          "taskName": "baseboards",
+          "taskDisplayName": "Baseboards",
+          "taskPrice": 1000,
+          "active": false
+        },
+        {
+          "taskName": "oven",
+          "taskDisplayName": "Oven",
+          "taskPrice": 1500,
+          "active": false
+        },
+        {
+          "taskName": "fridge",
+          "taskDisplayName": "Fridge",
+          "taskPrice": 1500,
+          "active": true
+        },
+        {
+          "taskName": "freezer",
+          "taskDisplayName": "Freezer",
+          "taskPrice": 1500,
+          "active": false
+        }
+      ]
+    },
+    {
+      "roomName": "livingRoom",
+      "roomDisplayName": "Living Room",
+      "roomImage": "https://images.unsplash.com/photo-1503174971373-b1f69850bded?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5952432c3b70cfedf523282f5895f009&auto=format&fit=crop&w=1387&q=80",
+      "active": false,
+      "roomTasks": [
+        {
+          "taskName": "floor",
+          "taskDisplayName": "Floor",
+          "taskPrice": 500,
+          "active": true
+        },
+        {
+          "taskName": "dusting",
+          "taskDisplayName": "Dusting",
+          "taskPrice": 1000,
+          "active": true
+        },
+        {
+          "taskName": "windows",
+          "taskDisplayName": "Windows",
+          "taskPrice": 700,
+          "active": true
+        },
+        {
+          "taskName": "furniture",
+          "taskDisplayName": "Furniture",
+          "taskPrice": 800,
+          "active": false
+        },
+        {
+          "taskName": "baseboards",
+          "taskDisplayName": "Baseboards",
+          "taskPrice": 1000,
+          "active": false
+        },
+        {
+          "taskName": "walls",
+          "taskDisplayName": "Walls",
+          "taskPrice": 1000,
+          "active": true
+        }
+      ]
+    },
+    {
+      "roomName": "bathroom",
+      "roomDisplayName": "Bathroom",
+      "roomImage": "https://images.unsplash.com/photo-1507086182422-97bd7ca2413b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c352402117406dd707d1baec4b29b811&auto=format&fit=crop&w=755&q=80",
+      "active": false,
+      "roomTasks": [
+        {
+          "taskName": "sink",
+          "taskDisplayName": "Sink",
+          "taskPrice": 200,
+          "active": true
+        },
+        {
+          "taskName": "mirror",
+          "taskDisplayName": "Mirror",
+          "taskPrice": 100,
+          "active": true
+        },
+        {
+          "taskName": "counterTops",
+          "taskDisplayName": "Counter Tops",
+          "taskPrice": 500,
+          "active": true
+        },
+        {
+          "taskName": "toilet",
+          "taskDisplayName": "Toilet",
+          "taskPrice": 800,
+          "active": true
+        },
+        {
+          "taskName": "floor",
+          "taskDisplayName": "Floor",
+          "taskPrice": 500,
+          "active": true
+        },
+        {
+          "taskName": "shower",
+          "taskDisplayName": "Shower",
+          "taskPrice": 800,
+          "active": true
+        },
+        {
+          "taskName": "tub",
+          "taskDisplayName": "Bathtub",
+          "taskPrice": 800,
+          "active": false
+        },
+        {
+          "taskName": "walls",
+          "taskDisplayName": "Walls",
+          "taskPrice": 800,
+          "active": false
+        },
+        {
+          "taskName": "baseboards",
+          "taskDisplayName": "Baseboards",
+          "taskPrice": 1000,
+          "active": true
+        }
+      ]
+    },
+    {
+      "roomName": "bedroom",
+      "roomDisplayName": "Bedroom",
+      "roomImage": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-0.3.5&s=bd8ed8308a093982ab2764855a014565&auto=format&fit=crop&w=750&q=80",
+      "active": false,
+      "roomTasks": [
+        {
+          "taskName": "floor",
+          "taskDisplayName": "Floor",
+          "taskPrice": 400,
+          "active": true
+        },
+        {
+          "taskName": "dust",
+          "taskDisplayName": "Dust",
+          "taskPrice": 350,
+          "active": false
+        },
+        {
+          "taskName": "walls",
+          "taskDisplayName": "Walls",
+          "taskPrice": 400,
+          "active": false
+        }
+      ]
+    }
+    ],
+    "price": 0,
+    "guruId": 1,
+    "guruName": "Marta & Co.",
+    "guruPhone": "8018831235",
+    "guruAvatarLink": "https://images.flickreel.com/wp-content/uploads/2017/09/darth-vader-e1504292624521-1280x853.jpg",
+    "guruAverageRating": 4.78
+  },
+  {
+    "address": "736 N 800 E Provo, UT 84606",
+    "dateScheduled": "Mon Feb 25 2018 17:10:04 GMT-0700 (MST)",
+    "cleaningAppointmentDate": "Mon Mar 10 2018 17:10:04 GMT-0700 (MST)",
+    "contactName": "Brett Adamson",
+    "contactPhone": "8011231234",
+    "rooms": [
+      {
+      "roomName": "kitchen",
+      "roomDisplayName": "Kitchen",
+      "roomImage": "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4d2529242e0b4fadad755467e572682a&auto=format&fit=crop&w=755&q=80",
+      "active": false,
+      "roomTasks": [
+        {
+          "taskName": "counterTops",
+          "taskDisplayName": "Counter Tops",
+          "taskPrice": 500,
+          "active": true
+        },
+        {
+          "taskName": "stoveTop",
+          "taskDisplayName": "Stove Top",
+          "taskPrice": 700,
+          "active": true
+        },
+        {
+          "taskName": "floor",
+          "taskDisplayName": "Floor",
+          "taskPrice": 500,
+          "active": true
+        },
+        {
+          "taskName": "dishes",
+          "taskDisplayName": "Dishes",
+          "taskPrice": 800,
+          "active": false
+        },
+        {
+          "taskName": "table",
+          "taskDisplayName": "Table",
+          "taskPrice": 300,
+          "active": true
+        },
+        {
+          "taskName": "walls",
+          "taskDisplayName": "Walls",
+          "taskPrice": 1000,
+          "active": false
+        },
+        {
+          "taskName": "baseboards",
+          "taskDisplayName": "Baseboards",
+          "taskPrice": 1000,
+          "active": false
+        },
+        {
+          "taskName": "oven",
+          "taskDisplayName": "Oven",
+          "taskPrice": 1500,
+          "active": false
+        },
+        {
+          "taskName": "fridge",
+          "taskDisplayName": "Fridge",
+          "taskPrice": 1500,
+          "active": false
+        },
+        {
+          "taskName": "freezer",
+          "taskDisplayName": "Freezer",
+          "taskPrice": 1500,
+          "active": false
+        }
+      ]
+    },
+    {
+      "roomName": "livingRoom",
+      "roomDisplayName": "Living Room",
+      "roomImage": "https://images.unsplash.com/photo-1503174971373-b1f69850bded?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5952432c3b70cfedf523282f5895f009&auto=format&fit=crop&w=1387&q=80",
+      "active": false,
+      "roomTasks": [
+        {
+          "taskName": "floor",
+          "taskDisplayName": "Floor",
+          "taskPrice": 500,
+          "active": true
+        },
+        {
+          "taskName": "dusting",
+          "taskDisplayName": "Dusting",
+          "taskPrice": 1000,
+          "active": false
+        },
+        {
+          "taskName": "windows",
+          "taskDisplayName": "Windows",
+          "taskPrice": 700,
+          "active": true
+        },
+        {
+          "taskName": "furniture",
+          "taskDisplayName": "Furniture",
+          "taskPrice": 800,
+          "active": false
+        },
+        {
+          "taskName": "baseboards",
+          "taskDisplayName": "Baseboards",
+          "taskPrice": 1000,
+          "active": true
+        },
+        {
+          "taskName": "walls",
+          "taskDisplayName": "Walls",
+          "taskPrice": 1000,
+          "active": false
+        }
+      ]
+    },
+    {
+      "roomName": "bathroom",
+      "roomDisplayName": "Bathroom",
+      "roomImage": "https://images.unsplash.com/photo-1507086182422-97bd7ca2413b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c352402117406dd707d1baec4b29b811&auto=format&fit=crop&w=755&q=80",
+      "active": false,
+      "roomTasks": [
+        {
+          "taskName": "sink",
+          "taskDisplayName": "Sink",
+          "taskPrice": 200,
+          "active": true
+        },
+        {
+          "taskName": "mirror",
+          "taskDisplayName": "Mirror",
+          "taskPrice": 100,
+          "active": true
+        },
+        {
+          "taskName": "counterTops",
+          "taskDisplayName": "Counter Tops",
+          "taskPrice": 500,
+          "active": true
+        },
+        {
+          "taskName": "toilet",
+          "taskDisplayName": "Toilet",
+          "taskPrice": 800,
+          "active": true
+        },
+        {
+          "taskName": "floor",
+          "taskDisplayName": "Floor",
+          "taskPrice": 500,
+          "active": true
+        },
+        {
+          "taskName": "shower",
+          "taskDisplayName": "Shower",
+          "taskPrice": 800,
+          "active": true
+        },
+        {
+          "taskName": "tub",
+          "taskDisplayName": "Bathtub",
+          "taskPrice": 800,
+          "active": true
+        },
+        {
+          "taskName": "walls",
+          "taskDisplayName": "Walls",
+          "taskPrice": 800,
+          "active": false
+        },
+        {
+          "taskName": "baseboards",
+          "taskDisplayName": "Baseboards",
+          "taskPrice": 1000,
+          "active": false
+        }
+      ]
+    },
+    {
+      "roomName": "bedroom",
+      "roomDisplayName": "Bedroom",
+      "roomImage": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-0.3.5&s=bd8ed8308a093982ab2764855a014565&auto=format&fit=crop&w=750&q=80",
+      "active": false,
+      "roomTasks": [
+        {
+          "taskName": "floor",
+          "taskDisplayName": "Floor",
+          "taskPrice": 400,
+          "active": true
+        },
+        {
+          "taskName": "dust",
+          "taskDisplayName": "Dust",
+          "taskPrice": 350,
+          "active": true
+        },
+        {
+          "taskName": "walls",
+          "taskDisplayName": "Walls",
+          "taskPrice": 400,
+          "active": false
+        }
+      ]
+    }
+    ],
+    "price": 0,
+    "guruId": 2,
+    "guruName": "Chewbacca's Cleaning Company",
+    "guruPhone": "8015556767",
+    "guruAvatarLink": "https://vignette.wikia.nocookie.net/starwars/images/4/49/AbominableChewbacca-SWT.png/revision/latest?cb=20131107054306",
+    "guruAverageRating": 4.54
+  },
+  {
+    "address": "1324 Hut Ln Achto Island, UT 84556",
+    "dateScheduled": "Mon Feb 10 2018 17:10:04 GMT-0700 (MST)",
+    "cleaningAppointmentDate": "Mon Feb 15 2018 17:10:04 GMT-0700 (MST)",
+    "contactName": "Dal Adamson",
+    "contactPhone": "8011235546",
+    "rooms": [
+      {
+      "roomName": "kitchen",
+      "roomDisplayName": "Kitchen",
+      "roomImage": "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4d2529242e0b4fadad755467e572682a&auto=format&fit=crop&w=755&q=80",
+      "active": false,
+      "roomTasks": [
+        {
+          "taskName": "counterTops",
+          "taskDisplayName": "Counter Tops",
+          "taskPrice": 500,
+          "active": true
+        },
+        {
+          "taskName": "stoveTop",
+          "taskDisplayName": "Stove Top",
+          "taskPrice": 700,
+          "active": true
+        },
+        {
+          "taskName": "floor",
+          "taskDisplayName": "Floor",
+          "taskPrice": 500,
+          "active": true
+        },
+        {
+          "taskName": "dishes",
+          "taskDisplayName": "Dishes",
+          "taskPrice": 800,
+          "active": true
+        },
+        {
+          "taskName": "table",
+          "taskDisplayName": "Table",
+          "taskPrice": 300,
+          "active": true
+        },
+        {
+          "taskName": "walls",
+          "taskDisplayName": "Walls",
+          "taskPrice": 1000,
+          "active": false
+        },
+        {
+          "taskName": "baseboards",
+          "taskDisplayName": "Baseboards",
+          "taskPrice": 1000,
+          "active": false
+        },
+        {
+          "taskName": "oven",
+          "taskDisplayName": "Oven",
+          "taskPrice": 1500,
+          "active": false
+        },
+        {
+          "taskName": "fridge",
+          "taskDisplayName": "Fridge",
+          "taskPrice": 1500,
+          "active": false
+        },
+        {
+          "taskName": "freezer",
+          "taskDisplayName": "Freezer",
+          "taskPrice": 1500,
+          "active": false
+        }
+      ]
+    },
+    {
+      "roomName": "livingRoom",
+      "roomDisplayName": "Living Room",
+      "roomImage": "https://images.unsplash.com/photo-1503174971373-b1f69850bded?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5952432c3b70cfedf523282f5895f009&auto=format&fit=crop&w=1387&q=80",
+      "active": false,
+      "roomTasks": [
+        {
+          "taskName": "floor",
+          "taskDisplayName": "Floor",
+          "taskPrice": 500,
+          "active": true
+        },
+        {
+          "taskName": "dusting",
+          "taskDisplayName": "Dusting",
+          "taskPrice": 1000,
+          "active": true
+        },
+        {
+          "taskName": "windows",
+          "taskDisplayName": "Windows",
+          "taskPrice": 700,
+          "active": true
+        },
+        {
+          "taskName": "furniture",
+          "taskDisplayName": "Furniture",
+          "taskPrice": 800,
+          "active": false
+        },
+        {
+          "taskName": "baseboards",
+          "taskDisplayName": "Baseboards",
+          "taskPrice": 1000,
+          "active": false
+        },
+        {
+          "taskName": "walls",
+          "taskDisplayName": "Walls",
+          "taskPrice": 1000,
+          "active": false
+        }
+      ]
+    },
+    {
+      "roomName": "bathroom",
+      "roomDisplayName": "Bathroom",
+      "roomImage": "https://images.unsplash.com/photo-1507086182422-97bd7ca2413b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c352402117406dd707d1baec4b29b811&auto=format&fit=crop&w=755&q=80",
+      "active": false,
+      "roomTasks": [
+        {
+          "taskName": "sink",
+          "taskDisplayName": "Sink",
+          "taskPrice": 200,
+          "active": true
+        },
+        {
+          "taskName": "mirror",
+          "taskDisplayName": "Mirror",
+          "taskPrice": 100,
+          "active": true
+        },
+        {
+          "taskName": "counterTops",
+          "taskDisplayName": "Counter Tops",
+          "taskPrice": 500,
+          "active": true
+        },
+        {
+          "taskName": "toilet",
+          "taskDisplayName": "Toilet",
+          "taskPrice": 800,
+          "active": true
+        },
+        {
+          "taskName": "floor",
+          "taskDisplayName": "Floor",
+          "taskPrice": 500,
+          "active": true
+        },
+        {
+          "taskName": "shower",
+          "taskDisplayName": "Shower",
+          "taskPrice": 800,
+          "active": true
+        },
+        {
+          "taskName": "tub",
+          "taskDisplayName": "Bathtub",
+          "taskPrice": 800,
+          "active": false
+        },
+        {
+          "taskName": "walls",
+          "taskDisplayName": "Walls",
+          "taskPrice": 800,
+          "active": false
+        },
+        {
+          "taskName": "baseboards",
+          "taskDisplayName": "Baseboards",
+          "taskPrice": 1000,
+          "active": false
+        }
+      ]
+    },
+    {
+      "roomName": "bedroom",
+      "roomDisplayName": "Bedroom",
+      "roomImage": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-0.3.5&s=bd8ed8308a093982ab2764855a014565&auto=format&fit=crop&w=750&q=80",
+      "active": false,
+      "roomTasks": [
+        {
+          "taskName": "floor",
+          "taskDisplayName": "Floor",
+          "taskPrice": 400,
+          "active": true
+        },
+        {
+          "taskName": "dust",
+          "taskDisplayName": "Dust",
+          "taskPrice": 350,
+          "active": true
+        },
+        {
+          "taskName": "walls",
+          "taskDisplayName": "Walls",
+          "taskPrice": 400,
+          "active": false
+        }
+      ]
+    }
+    ],
+    "price": 0,
+    "guruId": 3,
+    "guruName": "Cleaning Maids",
+    "guruPhone": "8012346643",
+    "guruAvatarLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCbwoqaSoGwzlWnEFBRXfpEmA8wa7ytpJdV3MJSYzsxtmA3_ejKg",
+    "guruAverageRating": 4.01
+  }
+]

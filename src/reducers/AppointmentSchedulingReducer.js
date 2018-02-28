@@ -1,23 +1,44 @@
 import defaultRooms from './data/rooms.json';
+import allAppointments from './data/appointments.json';
 import {
   ADD_ROOM,
   REMOVE_ROOM,
   TASK_TOGGLE,
-  SELECT_DETAILS
+  SELECT_DETAILS,
+  CONTACT_NAME_CHANGED,
+  ADDRESS_CHANGED,
+  PHONE_CHANGED,
+  DATE_CHANGED,
+  CONFIRM_APPOINTMENT
 } from '../actions/Types';
 
+const phoneRegex = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
+
 const INITIAL_STATE = {
+  appointments: allAppointments,
+  address: '',
+  addressValid: false,
+  phone: '',
+  phoneValid: false,
+  contactName: '',
+  chosenDate: new Date(),
+  currentDate: new Date(),
   cleaningAppointment: {
+    address: '',
+    dateScheduled: '',
+    cleaingAppointmentDate: '',
+    contactName: '',
+    contactPhone: '',
     rooms: [],
     price: 0,
-    address: {
-      streetNumber: null,
-      city: null,
-      state: null,
-      zip: null
-    },
-    // date stuff here
+    guruId: null,
+    guruName: '',
+    guruPhone: '',
+    guruAvatarLink: '',
+    guruAverageRating: 0
   },
+  dateString: 'Select a date',
+  timeString: 'Select a date',
   detailRoom: null,
   selectedRooms: [],
   price: 0
@@ -68,6 +89,35 @@ function changeTaskStatus(cleaningAppointment, task) {
   return cleaningAppointment;
 }
 
+function formatDateString(date) {
+  let monthNames = [
+    "Jan", "Feb", "Mar",
+    "Apr", "May", "June", "July",
+    "Aug", "Sep", "Oct",
+    "Nov", "Dec"
+  ];
+  let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  let dayNameIndex = date.getDay();
+  let monthIndex = date.getMonth();
+  let dayNum = date.getDate();
+  let year = date.getFullYear();
+  
+  return (days[dayNameIndex] + ', ' + monthNames[monthIndex] + ' ' + dayNum + ', ' + year);
+}
+
+function formatTimeString(date) {
+  let hour = date.getHours();
+  let s = hour > 12 ? 'PM' : 'AM';
+  if(hour > 12) {
+    hour = hour % 12;
+  }
+  let min = date.getMinutes();
+  if(min < 10) {
+    return (hour + ':' + '0' + min + ' ' + s);  
+  }
+  return (hour + ':' + min + ' ' + s);
+}
+
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_ROOM:
@@ -103,6 +153,39 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, selectedRooms: alist, price: p, detailRoom: alist[i] }
     case SELECT_DETAILS:
       return { ...state, detailRoom: action.payload };
+    case ADDRESS_CHANGED:
+      // See if the address is valid
+      let valid = true;
+      return { ...state, address: action.payload, addressValid: valid };
+    case PHONE_CHANGED:
+      if(phoneRegex.test(action.payload)) {
+        valid = true;
+      }
+      else {
+        valid = false;
+      }
+      return { ...state, phone: action.payload, phoneValid: valid };
+    case CONTACT_NAME_CHANGED:
+      return { ...state, contactName: action.payload };
+    case DATE_CHANGED:
+      return { ...state, chosenDate: action.payload, dateString: formatDateString(action.payload), timeString: formatTimeString(action.payload) };
+    case CONFIRM_APPOINTMENT:
+      let c = {};
+      c.address = state.address;
+      c.dateScheduled = state.currentDate;
+      c.cleaningAppointmentDate = state.chosenDate;
+      c.contactName = state.contactName;
+      c.contactPhone = state.phone;
+      c.rooms = state.selectedRooms;
+      c.price = state.price;
+      c.guruId = 1;
+      c.guruName = 'Cleaning People Inc.';
+      c.guruPhone = '8014451234';
+      c.guruAvatarLink = 'https://heroichollywood.b-cdn.net/wp-content/uploads/2017/02/Finn.jpg?x42694';
+      c.guruAverageRating = 4.73;
+      let apps = state.appointments;
+      apps.push(c);
+      return { ...state, ...INITIAL_STATE, appointments: apps };
     default:
       return state;
   }

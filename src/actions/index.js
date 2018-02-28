@@ -15,7 +15,12 @@ import {
   SELECT_DETAILS,
   TASK_TOGGLE,
   ADD_ROOM,
-  REMOVE_ROOM
+  REMOVE_ROOM,
+  ADDRESS_CHANGED,
+  PHONE_CHANGED,
+  CONTACT_NAME_CHANGED,
+  DATE_CHANGED,
+  CONFIRM_APPOINTMENT
 } from './Types';
 
 // Login and Sign Up Actions
@@ -111,5 +116,40 @@ export const selectDetails = (room) => {
   return {
     type: SELECT_DETAILS,
     payload: room
+  };
+};
+
+export const addressChanged = (text) => {
+  return {
+    type: ADDRESS_CHANGED,
+    payload: text
+  };
+};
+
+export const phoneChanged = (text) => {
+  return {
+    type: PHONE_CHANGED,
+    payload: text
+  };
+};
+
+export const contactNameChanged = (text) => {
+  return {
+    type: CONTACT_NAME_CHANGED,
+    payload: text
+  };
+};
+
+export const dateChanged = (date) => {
+  return {
+    type: DATE_CHANGED,
+    payload: date
+  };
+};
+
+export const confirmedAppointment = (item) => {
+  return {
+    type: CONFIRM_APPOINTMENT,
+    payload: item
   };
 };
