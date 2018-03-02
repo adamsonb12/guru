@@ -1,24 +1,56 @@
 import React, { Component } from 'react';
 import { CheckBox } from 'react-native-elements';
 
-const Checkbox = ({ onPress, task, children }) => {
-  return (
-    <CheckBox
-      right
-      title={task.taskDisplayName}
-      checked={task.active}
-      iconRight
-      containerStyle={styles.containerStyle}
-      textStyle={styles.textStyle}
-      iconType='material-community'
-      checkedIcon='checkbox-marked-circle'
-      uncheckedIcon='checkbox-blank-circle-outline'
-      checkedColor='white'
-      size={32}
-      onPress={onPress}
-    />
-  );
-};
+class Checkbox extends Component {
+
+  state = {
+    checked: this.props.active
+  }
+
+  check() {
+    let b = !this.state.checked;
+    this.setState({ checked: b });
+    this.props.onPress();
+  }
+
+  render() {
+    return (
+      <CheckBox
+        right
+        title={this.props.title}
+        checked={this.state.checked}
+        iconRight
+        containerStyle={styles.containerStyle}
+        textStyle={styles.textStyle}
+        iconType='material-community'
+        checkedIcon='checkbox-marked-circle'
+        uncheckedIcon='checkbox-blank-circle-outline'
+        checkedColor='white'
+        size={32}
+        onPress={() => this.check()}
+      />
+    )
+  }
+}
+
+// const Checkbox = ({ onPress, title, children, active}) => {
+//   return (
+//     <CheckBox
+//       right
+//       title={title}
+//       checked={active}
+//       iconRight
+//       containerStyle={styles.containerStyle}
+//       textStyle={styles.textStyle}
+//       iconType='material-community'
+//       checkedIcon='checkbox-marked-circle'
+//       uncheckedIcon='checkbox-blank-circle-outline'
+//       checkedColor='white'
+//       size={32}
+//       onPress={onPress}
+//     />
+//   );
+// };
 
 const styles = {
   containerStyle: {

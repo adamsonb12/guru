@@ -3,9 +3,9 @@ import { View, Text, Image } from 'react-native';
 import { connect } from 'react-redux';
 
 import { emailChanged, passwordChanged, loginUser } from '../actions';
-import { FullContainer, CardSection, Input, Spinner, ActionButton, ImageFullScreenView, ErrorMessage } from './common';
+import { FullContainer, CardSection, CustomInput, Spinner, ActionButton, ImageFullScreenView, ErrorMessage } from './common';
 
-const remote = 'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1506&q=80';
+const remote = 'https://images.unsplash.com/photo-1449247709967-d4461a6a6103?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1053a3cdbabdd85102b762b3a05966ae&auto=format&fit=crop&w=751&q=80';
 
 class LoginForm extends Component {
 
@@ -51,17 +51,21 @@ class LoginForm extends Component {
 
         <View style={styles.SpacingStyle}>
 
-          <Input 
+          <CustomInput 
             placeholder="Email"
             onChangeText={this.onEmailChange.bind(this)}
             value={this.props.email}
+            icon='email'
+            iconType='material-community'
           />
 
-          <Input 
+          <CustomInput 
             secureTextEntry
             placeholder="Password"
             onChangeText={this.onPasswordChange.bind(this)}
             value={this.props.password}
+            icon='lock'
+            iconType='font-awesome'
           />
 
         {this.renderError()}

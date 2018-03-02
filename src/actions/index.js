@@ -7,6 +7,7 @@ import {
   LOGIN_USER,
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAIL,
+  LOGOUT_USER,
   FIRST_NAME_CHANGED,
   LAST_NAME_CHANGED,
   PASSWORD_CONFIRM_CHANGED,
@@ -87,6 +88,13 @@ const loginUserSuccess = (dispatch, user) => {
 
 const loginUserFail = (dispatch) => {
   dispatch({ type: LOGIN_USER_FAIL });
+};
+
+export const logout = (user) => {
+  return {
+    type: LOGOUT_USER,
+    payload: user
+  };
 };
 
 // Scheduling Actions

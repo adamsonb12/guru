@@ -17,12 +17,12 @@ const RouterComponent = () => {
       <Scene key="root" hideNavBar>
         
         <Scene key="loginProcess">
-          <Scene key="onboarding" component={Onboarding} hideNavBar></Scene>
+          <Scene key="onboarding" component={Onboarding} hideNavBar initial></Scene>
           <Scene key="signup" component={SignUpForm} title="GURU"></Scene>
           <Scene key="login" component={LoginForm} title="Login"></Scene>
         </Scene>
 
-        <Scene key="home" component={Home} title="Home" hideNavBar initial />
+        <Scene key="home" component={Home} title="Home" hideNavBar />
         <Scene key="appointments" component={Appointments} title="Appointments" hideNavBar />
 
         <Scene key="scheduling">

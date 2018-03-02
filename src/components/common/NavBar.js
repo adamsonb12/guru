@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { View, Text, Modal, Button } from 'react-native';
 import { Icon, Avatar } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
+import { connect } from 'react-redux';
 
+import { logout } from '../../actions';
 import { ActionButton } from '../common';
 
 class NavBar extends Component {
@@ -28,7 +30,37 @@ class NavBar extends Component {
 
   logout() {
     this.closeModal();
+    this.props.logout();
     Actions.onboarding();
+  }
+
+  renderInnerContainer() {
+    if (!this.props.user) {
+      return <View />;
+    } else {
+      return (
+        <View style={styles.modalContainer}>
+          <View style={styles.innerContainer}>
+            <Avatar
+              large
+              rounded
+              source={{
+                uri:
+                  'https://vafloc02.s3.amazonaws.com/isyn/images/f057/img-2009057-f.jpg'
+              }}
+              activeOpacity={0.7}
+            />
+            <View style={styles.infoSection}>
+              {/* <Text style={styles.infoText}>Email: </Text> */}
+              <Text style={styles.infoText}>{this.props.user.email}</Text>
+            </View>
+          </View>
+          <View style={styles.footer}>
+            <ActionButton onPress={() => this.logout()}>Log Out</ActionButton>
+          </View>
+        </View>
+      );
+    }
   }
 
   render() {
@@ -64,23 +96,17 @@ class NavBar extends Component {
           <View style={styles.modalContainer}>
             <View style={styles.modalHeaderContainer}>
               <Icon
+                iconStyle={styles.x}
                 name="x"
                 type="foundation"
                 color="grey"
-                size={33}
+                size={35}
                 onPress={() => this.closeModal()}
               />
+              <Text style={styles.profile}>Profile</Text>
+              <Icon name="x" type="foundation" color="white" size={35} />
             </View>
-            <View style={styles.innerContainer}>
-              <Text style={styles.username}>UserName</Text>
-              <Avatar
-                large
-                rounded
-                source={{uri: "https://vafloc02.s3.amazonaws.com/isyn/images/f057/img-2009057-f.jpg"}}
-                activeOpacity={0.7}
-              />
-              <ActionButton onPress={() => this.logout()}>Log Out</ActionButton>
-            </View>
+            {this.renderInnerContainer()}
           </View>
         </Modal>
       </View>
@@ -105,24 +131,47 @@ const styles = {
     flex: 1,
     justifyContent: 'flex-start',
     backgroundColor: 'white',
+    flexDirection: 'column'
+  },
+  infoSection: {
+    flexDirection: 'row',
+    paddingTop: 15
+  },
+  x: {
+    paddingLeft: 15
   },
   modalHeaderContainer: {
     flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
-    paddingTop: 15,
-    paddingLeft: 15
+    justifyContent: 'space-between',
+    paddingTop: 20
   },
   innerContainer: {
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    paddingTop: 40
   },
-  username: {
+  profile: {
     color: 'rgb(77,99,115)',
     fontFamily: 'Helvetica Neue',
     fontSize: 30,
+    fontWeight: '700',
+    paddingRight: 15
+  },
+  infoText: {
+    color: 'rgb(77,99,115)',
+    fontFamily: 'Helvetica Neue',
+    fontSize: 22,
     fontWeight: '700'
+  },
+  footer: {
+    flex: 1,
+    justifyContent: 'flex-end'
   }
 };
 
-export { NavBar };
+const mapStateToProps = ({ auth }) => {
+  const { user } = auth;
+  return { user };
+};
+
+export default connect(mapStateToProps, { logout })(NavBar);

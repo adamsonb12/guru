@@ -8,7 +8,8 @@ import {
   LAST_NAME_CHANGED,
   SIGN_UP_USER,
   SIGN_UP_USER_FAIL,
-  PASSWORD_CONFIRM_CHANGED
+  PASSWORD_CONFIRM_CHANGED,
+  LOGOUT_USER
 } from '../actions/Types';
 
 const INITIAL_STATE = {
@@ -43,6 +44,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, loading: false, error: true, errorMessage: 'Invalid email or password' , password: '', passwordConfirm: '' };
     case SIGN_UP_USER_FAIL:
       return { ...state, loading: false, error: true, errorMessage: 'Error: Invalid Inputs' , password: '', passwordConfirm: '' };
+    case LOGOUT_USER:
+      return { ...state, ...INITIAL_STATE };
     default:
       return state;
   }

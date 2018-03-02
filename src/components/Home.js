@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-import { FullContainer, ImageFullScreenView, InformationButton, ActionButton, NavBar } from './common';
+import { FullContainer, ImageFullScreenView, InformationButton, ActionButton } from './common';
+import NavBar from './common/NavBar';
 
 const remote = 'https://images.unsplash.com/photo-1467043153537-a4fba2cd39ef?auto=format&fit=crop&w=361&q=80';
 

@@ -93,7 +93,7 @@ const styles = {
     justifyContent: 'flex-start',
     alignItems: 'center',
     flexDirection: 'column',
-    paddingBottom: 10
+    paddingBottom: 73
   },
   buttonContainer: {
     position: 'absolute',

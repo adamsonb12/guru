@@ -13,11 +13,10 @@ class TaskChecklist extends Component {
   }
 
   _renderItem = ({item}) => (
-    <Checkbox task={item} onPress={() => this._onPress(item)} />
+    <Checkbox onPress={() => this._onPress(item)} active={item.active} title={item.taskDisplayName} />
   );
 
   render() {
-    console.log(this.props);
     return (
       <FullContainer>
         <ImageFullScreenView source={this.props.detailRoom.roomImage} />

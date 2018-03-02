@@ -3,9 +3,9 @@ import { View, Text, Image } from 'react-native';
 import { connect } from 'react-redux';
 
 import { emailChanged, passwordChanged, loginUser, lastNameChanged, firstNameChanged, signUpUser, passwordConfirmChanged } from '../actions';
-import { FullContainer, CardSection, Input, Spinner, ActionButton, ImageFullScreenView, ErrorMessage } from './common';
+import { FullContainer, CardSection, CustomInput, Spinner, ActionButton, ImageFullScreenView, ErrorMessage } from './common';
 
-const remote = 'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1506&q=80';
+const remote = 'https://images.unsplash.com/photo-1481277542470-605612bd2d61?ixlib=rb-0.3.5&s=f56a8fa0b3e9cc99ad651f4c1590f25f&auto=format&fit=crop&w=1390&q=80';
 
 class SignUpForm  extends Component {
 
@@ -68,7 +68,7 @@ class SignUpForm  extends Component {
       );
     }
     return (
-        <ActionButton disabled={this.state.disabled} onPress={this.onSignUpPress.bind(this)}>Submit</ActionButton>
+        <ActionButton onPress={this.onSignUpPress.bind(this)}>Submit</ActionButton>
     );
   }
 
@@ -76,12 +76,7 @@ class SignUpForm  extends Component {
     return (
       <FullContainer>
 
-        <ImageFullScreenView>
-          <Image
-            style={styles.ImageBackgroundStyle}
-            source={{ uri: remote }}
-          />
-        </ImageFullScreenView>
+        <ImageFullScreenView source={remote} />
 
         <View style={styles.SpacingStyle}>
 
@@ -89,36 +84,38 @@ class SignUpForm  extends Component {
             <Text style={styles.IntroContentStyle}>Sign Up for GURU</Text>
           </View>
 
-          <Input
+          <CustomInput
             placeholder="First Name"
             onChangeText={this.onFirstNameChange.bind(this)}
             value={this.props.firstName}
+            icon='ios-person'
+            iconType='ionicon'
           />
 
-          <Input
-            placeholder="Last Name"
-            onChangeText={this.onLastNameChange.bind(this)}
-            value={this.props.lastName}
-          />
-
-          <Input 
+          <CustomInput 
             placeholder="Email"
             onChangeText={this.onEmailChange.bind(this)}
             value={this.props.email}
+            icon='email'
+            iconType='material-community'
           />
 
-          <Input 
+          <CustomInput 
             secureTextEntry
             placeholder="Password"
             onChangeText={this.onPasswordChange.bind(this)}
             value={this.props.password}
+            icon='lock'
+            iconType='font-awesome'
           />
 
-          <Input 
+          <CustomInput 
             secureTextEntry
             placeholder="Password Confirm"
             onChangeText={this.onPasswordConfirmChange.bind(this)}
             value={this.props.passwordConfirm}
+            icon='lock'
+            iconType='font-awesome'
           />
 
         {this.renderError()}

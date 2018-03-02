@@ -1,24 +1,35 @@
 import React, { Component } from 'react';
 import { View, Text, DatePickerIOS, Modal, Button } from 'react-native';
 import { connect } from 'react-redux';
-import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
 
-import { FullContainer, ImageFullScreenView, OrderTotal, ActionButton, ContinueButton } from '../common';
-import { addressChanged, phoneChanged, contactNameChanged, dateChanged } from '../../actions';
+import {
+  FullContainer,
+  ImageFullScreenView,
+  OrderTotal,
+  ActionButton,
+  ContinueButton,
+  CustomInput
+} from '../common';
+import {
+  addressChanged,
+  phoneChanged,
+  contactNameChanged,
+  dateChanged
+} from '../../actions';
 
-const remote = 'https://images.unsplash.com/photo-1455792244736-3ed96c3d7f7e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=17365d8de85449ffdfc69679b561a9d1&auto=format&fit=crop&w=375&q=80';
+const remote =
+  'https://images.unsplash.com/photo-1455792244736-3ed96c3d7f7e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=17365d8de85449ffdfc69679b561a9d1&auto=format&fit=crop&w=375&q=80';
 
 class AppointmentInfo extends Component {
-
   continue() {
     Actions.confirmation();
   }
 
   renderContinueButton() {
-    if(
-      this.props.address.length > 0 && 
-      this.props.phone.length > 0 && 
+    if (
+      this.props.address.length > 0 &&
+      this.props.phone.length > 0 &&
       this.props.name.length > 0 &&
       this.props.addressValid &&
       this.props.phoneValid
@@ -26,30 +37,15 @@ class AppointmentInfo extends Component {
       return (
         <ContinueButton disabled={false} onPress={this.continue.bind(this)} />
       );
-    }
-    else {
-      return (
-        <ContinueButton disabled={true} />
-      );
-    }
-  }
-
-  renderAddressError() {
-    if(!this.props.addressValid && this.props.address.length > 0) {
-      return (<FormValidationMessage>Invalid Address</FormValidationMessage>);
-    }
-  }
-
-  renderPhoneError() {
-    if(!this.props.phoneValid && this.props.phone.length > 0) {
-      return (<FormValidationMessage>Invalid Phone Number</FormValidationMessage>);
+    } else {
+      return <ContinueButton disabled={true} />;
     }
   }
 
   setAddress(text) {
     this.props.addressChanged(text);
   }
-  
+
   setDate(newDate) {
     this.props.dateChanged(newDate);
   }
@@ -61,29 +57,41 @@ class AppointmentInfo extends Component {
   setPhone(text) {
     this.props.phoneChanged(text);
   }
-  
+
   render() {
     return (
       <FullContainer>
-
         <ImageFullScreenView source={remote} />
 
         <View style={styles.screenContainerStyle}>
-
           <View style={styles.introStyle}>
             <Text style={styles.introTextStyle}>Appointment Information</Text>
 
-            <FormLabel>Name of Contact</FormLabel>
-            <FormInput onChangeText={this.setName.bind(this)}/>
+            <View style={styles.innerContainer}>
+            <CustomInput
+              placeholder="Contact Name"
+              onChangeText={this.setName.bind(this)}
+              value={this.props.contactName}
+              icon="ios-person"
+              iconType="ionicon"
+            />
 
-            <FormLabel>Address</FormLabel>
-            <FormInput onChangeText={this.setAddress.bind(this)}/>
-            {this.renderAddressError()}
+            <CustomInput
+              placeholder="Address"
+              onChangeText={this.setAddress.bind(this)}
+              value={this.props.address}
+              icon="location-on"
+              iconType="material"
+            />
 
-            <FormLabel>Phone Number</FormLabel>
-            <FormInput onChangeText={this.setPhone.bind(this)}/>
-            {this.renderPhoneError()}
-
+            <CustomInput
+              placeholder="(555) 555-5555"
+              onChangeText={this.setPhone.bind(this)}
+              value={this.props.phone}
+              icon="phone"
+              iconType="font-awesome"
+            />
+            </View>
           </View>
 
           <View style={styles.introStyle}>
@@ -95,15 +103,13 @@ class AppointmentInfo extends Component {
             onDateChange={this.setDate.bind(this)}
             minimumDate={this.props.currentDate}
           />
-
         </View>
 
-        <View style={styles.buttonContainer} >
+        <View style={styles.buttonContainer}>
           {this.renderContinueButton()}
         </View>
 
         <OrderTotal price={this.props.price} />
-
       </FullContainer>
     );
   }
@@ -129,18 +135,45 @@ const styles = {
     paddingTop: 15
   },
   innerContainer: {
-    alignItems: 'center',
+    alignItems: 'center'
   },
   buttonContainer: {
     position: 'absolute',
     bottom: 75,
     right: 17
   }
-}
+};
 
 const mapStateToProps = ({ appointment }) => {
-  const { cleaningAppointment, price, selectedRooms, address, phone, contactName, addressValid, phoneValid, currentDate, chosenDate } = appointment;
-  return { cleaningAppointment, price, selectedRooms, address, phone, contactName, addressValid, phoneValid, currentDate, chosenDate };
-}
+  const {
+    cleaningAppointment,
+    price,
+    selectedRooms,
+    address,
+    phone,
+    contactName,
+    addressValid,
+    phoneValid,
+    currentDate,
+    chosenDate
+  } = appointment;
+  return {
+    cleaningAppointment,
+    price,
+    selectedRooms,
+    address,
+    phone,
+    contactName,
+    addressValid,
+    phoneValid,
+    currentDate,
+    chosenDate
+  };
+};
 
-export default connect(mapStateToProps, { addressChanged, phoneChanged, contactNameChanged, dateChanged })(AppointmentInfo);
+export default connect(mapStateToProps, {
+  addressChanged,
+  phoneChanged,
+  contactNameChanged,
+  dateChanged
+})(AppointmentInfo);

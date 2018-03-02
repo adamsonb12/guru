@@ -4,7 +4,8 @@ import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import { Card, Avatar, Icon } from 'react-native-elements';
 
-import { FullContainer, ImageFullScreenView, InformationButton, ActionButton, NavBar, StaticListItem, RoomInfoItem } from '../common';
+import { FullContainer, ImageFullScreenView, InformationButton, ActionButton, StaticListItem, RoomInfoItem } from '../common';
+import NavBar from '../common/NavBar';
 
 const remote = 'https://images.unsplash.com/photo-1467043153537-a4fba2cd39ef?auto=format&fit=crop&w=361&q=80';
 
