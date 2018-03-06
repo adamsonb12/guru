@@ -19,14 +19,14 @@ class RoomItem extends React.PureComponent {
 
   onDetailsPress() {
     this.props.selectDetails(this.props.room);
-    Actions.taskSelection();
+    Actions.taskSelection({ index: this.props.index});
   }
 
   renderContent() {
     if (this.props.room.active) {
       return (
         <TouchableOpacity onPress={this._onPress} style={styles.imageButtonStyle}>
-          <ImageFillContainer source={this.props.room.roomImage} />
+          {/* <ImageFillContainer source={this.props.room.roomImage} /> */}
           <View style={styles.textContainer}>
             <Text style={styles.imageRoomNameStyle}>{this.props.room.roomDisplayName}</Text>
             <TouchableOpacity onPress={this.onDetailsPress.bind(this)}>
@@ -41,7 +41,6 @@ class RoomItem extends React.PureComponent {
         <View style={styles.textContainer}>
           <Text style={styles.roomNameStyle}>{this.props.room.roomDisplayName}</Text>
           <TouchableOpacity onPress={this.onDetailsPress.bind(this)}>
-            {/* <Text style={styles.imageDetailsStyle}>details</Text> */}
           </TouchableOpacity>
         </View>
       </TouchableOpacity>
@@ -59,19 +58,17 @@ class RoomItem extends React.PureComponent {
 
 const styles = {
   itemContainerStyle: {
-    paddingTop: 10
   },
   buttonStyle: {
-    height: 67,
+    height: 50,
     width: 353,
-    backgroundColor: 'rgba(0, 0, 0, .45)',
-    borderRadius: 5,
+    backgroundColor: 'rgba(0, 0, 0, .35)',
     justifyContent: 'center'
   },
   imageButtonStyle: {
-    height: 67,
+    height: 50,
     width: 353,
-    backgroundColor: 'transparent',
+    backgroundColor: 'rgba(30,53,71,.7)',
     justifyContent: 'center'
   },
   roomNameStyle: {

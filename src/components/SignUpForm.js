@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, loginUser, lastNameChanged, firstNameChanged, signUpUser, passwordConfirmChanged } from '../actions';
 import { FullContainer, CardSection, CustomInput, Spinner, ActionButton, ImageFullScreenView, ErrorMessage } from './common';
 
-const remote = 'https://images.unsplash.com/photo-1481277542470-605612bd2d61?ixlib=rb-0.3.5&s=f56a8fa0b3e9cc99ad651f4c1590f25f&auto=format&fit=crop&w=1390&q=80';
+const remote = 'https://images.unsplash.com/photo-1449247709967-d4461a6a6103?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1053a3cdbabdd85102b762b3a05966ae&auto=format&fit=crop&w=751&q=80';
 
 class SignUpForm  extends Component {
 

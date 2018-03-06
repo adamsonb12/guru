@@ -27,7 +27,7 @@ const RouterComponent = () => {
 
         <Scene key="scheduling">
           <Scene key="homeSchedule" component={Home} title="Home" hideNavBar/>
-          <Scene key="roomSelection" component={RoomSelection} title="Room Selection"/>
+          <Scene key="roomSelection" component={RoomSelection} title="Room Selection" />
           <Scene key="taskSelection" component={TaskChecklist} title="Room Details" />
           <Scene key="appointment" component={AppointmentInfo} title="Guru" />
           <Scene key="confirmation" component={Confirmation} title="Confirmation" />

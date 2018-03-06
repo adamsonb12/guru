@@ -42,7 +42,7 @@ const INITIAL_STATE = {
   detailRoom: null,
   selectedRooms: [],
   price: 0
-}
+};
 
 function containsObject(obj, list) {
   for (let i = 0; i < list.length; i++) {
@@ -65,8 +65,8 @@ function findIndex(obj, list) {
 function calcPrice(rooms) {
   let p = 0;
   if (rooms.length > 0) {
-    rooms.forEach((room) => {
-      room.roomTasks.forEach((task) => {
+    rooms.forEach(room => {
+      room.roomTasks.forEach(task => {
         if (task.active) {
           p = p + task.taskPrice;
         }
@@ -77,10 +77,10 @@ function calcPrice(rooms) {
 }
 
 function changeTaskStatus(cleaningAppointment, task) {
-  for(let i = 0; i < cleaningAppointment.rooms.length; i++) {
-    if(cleaningAppointment.rooms[i].roomName === task.roomName) {
-      cleaningAppointment.rooms[i].roomTasks.forEach((t) => {
-        if(t.taskName === task.taskName) {
+  for (let i = 0; i < cleaningAppointment.rooms.length; i++) {
+    if (cleaningAppointment.rooms[i].roomName === task.roomName) {
+      cleaningAppointment.rooms[i].roomTasks.forEach(t => {
+        if (t.taskName === task.taskName) {
           t.active = !t.active;
         }
       });
@@ -91,46 +91,95 @@ function changeTaskStatus(cleaningAppointment, task) {
 
 function formatDateString(date) {
   let monthNames = [
-    "Jan", "Feb", "Mar",
-    "Apr", "May", "June", "July",
-    "Aug", "Sep", "Oct",
-    "Nov", "Dec"
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'June',
+    'July',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec'
   ];
-  let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  let days = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday'
+  ];
   let dayNameIndex = date.getDay();
   let monthIndex = date.getMonth();
   let dayNum = date.getDate();
   let year = date.getFullYear();
-  
-  return (days[dayNameIndex] + ', ' + monthNames[monthIndex] + ' ' + dayNum + ', ' + year);
+
+  return (
+    days[dayNameIndex] +
+    ', ' +
+    monthNames[monthIndex] +
+    ' ' +
+    dayNum +
+    ', ' +
+    year
+  );
 }
 
 function formatTimeString(date) {
   let hour = date.getHours();
   let s = hour > 12 ? 'PM' : 'AM';
-  if(hour > 12) {
+  if (hour > 12) {
     hour = hour % 12;
   }
   let min = date.getMinutes();
-  if(min < 10) {
-    return (hour + ':' + '0' + min + ' ' + s);  
+  if (min < 10) {
+    return hour + ':' + '0' + min + ' ' + s;
   }
-  return (hour + ':' + min + ' ' + s);
+  return hour + ':' + min + ' ' + s;
 }
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_ROOM:
-      let room = Object.assign({}, defaultRooms.rooms[findIndex(action.payload, defaultRooms.rooms)]);
+      var deepExtend = function(out) {
+        out = out || {};
+
+        for (var i = 1; i < arguments.length; i++) {
+          var obj = arguments[i];
+
+          if (!obj) continue;
+          
+          for (var key in obj) {
+            if (obj.hasOwnProperty(key)) {
+              if (typeof obj[key] === 'object')
+              out[key] = deepExtend(out[key], obj[key]);
+              else out[key] = obj[key];
+            }
+          }
+        }
+        
+        return out;
+      };
+      
+      let room1 = Object.assign(
+        {},
+        defaultRooms.rooms[findIndex(action.payload, defaultRooms.rooms)]
+      );
+      let room = deepExtend({}, room1, {});
+      room.roomTasks = Object.values(room.roomTasks);
       room.active = true;
-      let alist1 = [ room, ...state.selectedRooms ];
+      let alist1 = [room, ...state.selectedRooms];
       let p1 = calcPrice(alist1);
-      return { ...state, selectedRooms: alist1, price: p1 }
+      return { ...state, selectedRooms: alist1, price: p1 };
     case REMOVE_ROOM:
       let alist = [];
       let i = 0;
-      if(state.selectedRooms.length > 1) {
-        if(containsObject(action.payload, state.selectedRooms)) {
+      if (state.selectedRooms.length > 1) {
+        if (containsObject(action.payload, state.selectedRooms)) {
           i = findIndex(action.payload, state.selectedRooms);
         }
         alist = state.selectedRooms.slice();
@@ -141,16 +190,28 @@ export default (state = INITIAL_STATE, action) => {
     case TASK_TOGGLE:
       alist = [];
       i = 0;
-      if(state.selectedRooms.length > 0) {
-        if(containsObject(action.payload.room, state.selectedRooms)) {
-          i = findIndex(action.payload.room, state.selectedRooms);
-        }
-        alist = state.selectedRooms.slice();
-        let taskIndex = findIndex(action.payload.task, alist[i].roomTasks);
-        alist[i].roomTasks[taskIndex].active = !alist[i].roomTasks[taskIndex].active;
+      if (state.selectedRooms.length > 0) {
+        // alist = state.selectedRooms.slice();
+        // let taskIndex = findIndex(action.payload.task, alist[action.payload.index].roomTasks);
+        let taskIndex = findIndex(
+          action.payload.task,
+          state.selectedRooms[action.payload.index].roomTasks
+        );
+        // alist[action.payload.index].roomTasks[taskIndex].active = !alist[action.payload.index].roomTasks[taskIndex].active;
+        state.selectedRooms[action.payload.index].roomTasks[
+          taskIndex
+        ].active = !state.selectedRooms[action.payload.index].roomTasks[
+          taskIndex
+        ].active;
       }
-      p = calcPrice(alist);
-      return { ...state, selectedRooms: alist, price: p, detailRoom: alist[i] }
+      // p = calcPrice(alist);
+      p = calcPrice(state.selectedRooms);
+      // return { ...state, selectedRooms: alist, price: p, detailRoom: alist[i]  }
+      return {
+        ...state,
+        price: p,
+        detailRoom: state.selectedRooms[action.payload.index]
+      };
     case SELECT_DETAILS:
       return { ...state, detailRoom: action.payload };
     case ADDRESS_CHANGED:
@@ -158,17 +219,21 @@ export default (state = INITIAL_STATE, action) => {
       let valid = true;
       return { ...state, address: action.payload, addressValid: valid };
     case PHONE_CHANGED:
-      if(phoneRegex.test(action.payload)) {
+      if (phoneRegex.test(action.payload)) {
         valid = true;
-      }
-      else {
+      } else {
         valid = false;
       }
       return { ...state, phone: action.payload, phoneValid: valid };
     case CONTACT_NAME_CHANGED:
       return { ...state, contactName: action.payload };
     case DATE_CHANGED:
-      return { ...state, chosenDate: action.payload, dateString: formatDateString(action.payload), timeString: formatTimeString(action.payload) };
+      return {
+        ...state,
+        chosenDate: action.payload,
+        dateString: formatDateString(action.payload),
+        timeString: formatTimeString(action.payload)
+      };
     case CONFIRM_APPOINTMENT:
       let c = {};
       c.address = state.address;
@@ -181,7 +246,8 @@ export default (state = INITIAL_STATE, action) => {
       c.guruId = 1;
       c.guruName = 'Cleaning People Inc.';
       c.guruPhone = '8014451234';
-      c.guruAvatarLink = 'https://heroichollywood.b-cdn.net/wp-content/uploads/2017/02/Finn.jpg?x42694';
+      c.guruAvatarLink =
+        'https://heroichollywood.b-cdn.net/wp-content/uploads/2017/02/Finn.jpg?x42694';
       c.guruAverageRating = 4.73;
       let apps = state.appointments;
       apps.push(c);

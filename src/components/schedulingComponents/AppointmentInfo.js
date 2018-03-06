@@ -42,6 +42,22 @@ class AppointmentInfo extends Component {
     }
   }
 
+  renderNextButton() {
+    if (
+      this.props.address.length > 0 &&
+      this.props.phone.length > 0 &&
+      this.props.name.length > 0 &&
+      this.props.addressValid &&
+      this.props.phoneValid
+    ) {
+      return (
+        <ActionButton disabled={false} onPress={this.continue.bind(this)}>Next</ActionButton>
+      );
+    } else {
+      return <ActionButton disabled={true}>Enter Information to Continue</ActionButton>
+    }
+  }
+
   setAddress(text) {
     this.props.addressChanged(text);
   }
@@ -103,11 +119,15 @@ class AppointmentInfo extends Component {
             onDateChange={this.setDate.bind(this)}
             minimumDate={this.props.currentDate}
           />
+        
+        {this.renderNextButton()}
+
         </View>
 
-        <View style={styles.buttonContainer}>
+
+        {/* <View style={styles.buttonContainer}>
           {this.renderContinueButton()}
-        </View>
+        </View> */}
 
         <OrderTotal price={this.props.price} />
       </FullContainer>

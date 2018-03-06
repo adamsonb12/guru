@@ -21,7 +21,7 @@ class NavBar extends Component {
   }
 
   goHome() {
-    Actions.home();
+    Actions.pop();
   }
 
   goToAppointments() {

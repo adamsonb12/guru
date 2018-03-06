@@ -113,10 +113,10 @@ export const removeRoom = (room) => {
   };
 };
 
-export const toggleTask = (room, task ) => {
+export const toggleTask = (room, task, index ) => {
   return {
     type: TASK_TOGGLE,
-    payload: { room, task }
+    payload: { room, task, index }
   };
 };
 

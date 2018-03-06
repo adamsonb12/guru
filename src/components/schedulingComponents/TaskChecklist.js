@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { CheckBox } from 'react-native-elements';
+import { Actions } from 'react-native-router-flux';
 
 import { FullContainer, ImageFullScreenView, OrderTotal, Checkbox } from '../common';
 import { toggleTask } from '../../actions';
@@ -9,7 +10,8 @@ import { toggleTask } from '../../actions';
 class TaskChecklist extends Component {
 
   _onPress(item){
-    this.props.toggleTask(this.props.detailRoom, item);
+    this.props.toggleTask(this.props.detailRoom, item, this.props.index);
+    Actions.refresh();
   }
 
   _renderItem = ({item}) => (
@@ -37,8 +39,15 @@ class TaskChecklist extends Component {
 }
 
 const styles = {
+  // screenContainerStyle: {
+  //   display: 'flex',
+  //   flexDirection: 'column',
+  //   backgroundColor: 'rgba(255,255,255,.6)',
+  //   flex: 1,
+  //   paddingBottom: 5
+  // },
   listContainerStyle: {
-    backgroundColor: 'transparent',
+    backgroundColor: 'rgba(255,255,255,.6)',
     flex: 1,
     justifyContent: 'flex-start',
     flexDirection: 'column',

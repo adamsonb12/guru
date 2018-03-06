@@ -25,7 +25,7 @@ class Checkbox extends Component {
         iconType='material-community'
         checkedIcon='checkbox-marked-circle'
         uncheckedIcon='checkbox-blank-circle-outline'
-        checkedColor='white'
+        checkedColor='rgb(30,53,71)'
         size={32}
         onPress={() => this.check()}
       />
